@@ -32,4 +32,12 @@ class ProductPage(BasePage):
         total_price_text = total_price.text
         assert book_price_text == total_price_text, "Total price does not match with book price"
 
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented, but " \
+                                                                                  "should not be"
+
+    def should_disappear_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented, but " \
+                                                                                  "should disappear"
+
 
