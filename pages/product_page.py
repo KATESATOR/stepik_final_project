@@ -4,16 +4,6 @@ from .locators import ProductPageLocators
 
 class ProductPage(BasePage):
 
-    def add_product_to_basket(self):
-        # self.should_be_promo_url()
-        self.add_to_basket()
-        self.solve_quiz_and_get_code()
-        self.should_be_success_message()
-        self.should_be_actual_price()
-
-    # def should_be_promo_url(self):
-    #     assert "?promo=newYear" in self.browser.current_url, "parameter '?promo=newYear' not in current url"
-
     def add_to_basket(self):
         add_to_basket_button = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET)
         add_to_basket_button.click()
@@ -39,5 +29,3 @@ class ProductPage(BasePage):
     def should_disappear_success_message(self):
         assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented, but " \
                                                                                   "should disappear"
-
-
