@@ -2,7 +2,6 @@ from .pages.product_page import ProductPage
 from .pages.login_page import LoginPage
 from .pages.basket_page import BasketPage
 import pytest
-import time
 
 
 # Константа ссылки
@@ -80,7 +79,7 @@ class TestUserAddToBasketFromProductPage():
         product_page.open()
         product_page.go_to_login_page()
         login_page = LoginPage(browser, browser.current_url)
-        login_page.register_new_user(email=str(time.time()) + "@fakemail.org", password=str(time.time()))
+        login_page.register_new_user()
         login_page.should_be_authorized_user()
 
     @pytest.mark.parametrize("link", [main_link])
